@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/taskManagerFragment">
+
+    <fragment
+        android:id="@+id/taskManagerFragment"
+        android:name="com.gulsengunes.workinghive.ui.TaskManagerFragment"
+        android:label="fragment_task_manager"
+        tools:layout="@layout/fragment_task_manager" />
+    <fragment
+        android:id="@+id/championTasksFragment"
+        android:name="com.gulsengunes.workinghive.ui.ChampionTasksFragment"
+        android:label="fragment_champion_tasks"
+        tools:layout="@layout/fragment_champion_tasks" />
+    <fragment
+        android:id="@+id/dreamTasksFragment"
+        android:name="com.gulsengunes.workinghive.ui.DreamTasksFragment"
+        android:label="fragment_dream_tasks"
+        tools:layout="@layout/fragment_dream_tasks" />
+    <fragment
+        android:id="@+id/miniGamesFragment"
+        android:name="com.gulsengunes.workinghive.ui.MiniGamesFragment"
+        android:label="fragment_mini_games"
+        tools:layout="@layout/fragment_mini_games" />
+    <fragment
+        android:id="@+id/luckyWheelFragment"
+        android:name="com.gulsengunes.workinghive.ui.LuckyWheelFragment"
+        android:label="fragment_lucky_wheel"
+        tools:layout="@layout/fragment_lucky_wheel" />
+</navigation>

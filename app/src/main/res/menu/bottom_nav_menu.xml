@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/taskManagerFragment"
+        android:title="Görevler"
+        android:icon="@drawable/ic_launcher_foreground"/>
+    <item
+        android:id="@+id/championTasksFragment"
+        android:title="Tamamlananlar"
+        android:icon="@drawable/ic_launcher_foreground"/>
+    <item
+        android:id="@+id/dreamTasksFragment"
+        android:title="Hayal"
+        android:icon="@drawable/ic_launcher_foreground"/>
+    <item
+        android:id="@+id/miniGamesFragment"
+        android:title="Oyunlar"
+        android:icon="@drawable/ic_launcher_foreground"/>
+    <item
+        android:id="@+id/luckyWheelFragment"
+        android:title="Şans Tekerliği"
+        android:icon="@drawable/ic_launcher_foreground"/>
+
+</menu>
