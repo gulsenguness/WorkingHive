@@ -3,8 +3,9 @@ package com.gulsengunes.workinghive.data.repository
 import com.gulsengunes.workinghive.data.database.TaskDao
 import com.gulsengunes.workinghive.data.model.Task
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class TaskRepository(private val taskDao: TaskDao) {
+class TaskRepository @Inject constructor(private val taskDao: TaskDao) {
 
     fun getAllTasks():Flow<List<Task>>{
         return taskDao.getAllTasks()
