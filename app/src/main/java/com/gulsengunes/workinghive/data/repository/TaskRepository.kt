@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 class TaskRepository @Inject constructor(private val taskDao: TaskDao) {
 
-    fun getAllTasks():Flow<List<Task>>{
+    fun getAllTasks(): Flow<List<Task>> {
         return taskDao.getAllTasks()
     }
 

@@ -8,6 +8,7 @@ data class Task(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     var title: String,
+    val priority: String,
     var description: String,
     val isCompleted: Boolean = false
 )
