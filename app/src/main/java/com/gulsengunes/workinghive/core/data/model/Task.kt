@@ -1,4 +1,4 @@
-package com.gulsengunes.workinghive.data.model
+package com.gulsengunes.workinghive.core.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -10,5 +10,5 @@ data class Task(
     var title: String,
     val priority: String,
     var description: String,
-    val isCompleted: Boolean = false
+    var isCompleted: Boolean = false
 )

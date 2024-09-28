@@ -1,4 +1,4 @@
-package com.gulsengunes.workinghive.ui
+package com.gulsengunes.workinghive.ui.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,14 +9,15 @@ import com.gulsengunes.workinghive.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class DreamTasksFragment : Fragment() {
+class LuckyWheelFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dream_tasks, container, false)
+        return inflater.inflate(R.layout.fragment_lucky_wheel, container, false)
     }
+
 
 }

@@ -1,7 +1,7 @@
-package com.gulsengunes.workinghive.data.repository
+package com.gulsengunes.workinghive.core.data.repository
 
-import com.gulsengunes.workinghive.data.database.TaskDao
-import com.gulsengunes.workinghive.data.model.Task
+import com.gulsengunes.workinghive.core.data.database.TaskDao
+import com.gulsengunes.workinghive.core.data.model.Task
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
@@ -30,4 +30,5 @@ class TaskRepository @Inject constructor(private val taskDao: TaskDao) {
     suspend fun deleteTask(task: Task) {
         taskDao.deleteTask(task)
     }
+
 }

@@ -1,4 +1,4 @@
-package com.gulsengunes.workinghive.data.database
+package com.gulsengunes.workinghive.core.data.database
 
 import androidx.room.Dao
 import androidx.room.Delete
@@ -7,7 +7,7 @@ import androidx.room.Query
 import androidx.room.Update
 import androidx.room.OnConflictStrategy
 import kotlinx.coroutines.flow.Flow
-import com.gulsengunes.workinghive.data.model.Task
+import com.gulsengunes.workinghive.core.data.model.Task
 
 @Dao
 interface TaskDao {
@@ -32,4 +32,5 @@ interface TaskDao {
     // Tamamlanmamış görevleri alma
     @Query("SELECT * FROM tasks WHERE isCompleted = 0 ORDER BY id ASC")
     fun getPendingTasks(): Flow<List<Task>>
+
 }

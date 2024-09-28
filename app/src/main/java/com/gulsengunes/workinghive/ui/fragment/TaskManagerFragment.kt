@@ -1,4 +1,4 @@
-package com.gulsengunes.workinghive.ui
+package com.gulsengunes.workinghive.ui.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,43 +8,41 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.gulsengunes.workinghive.data.model.Task
+import com.gulsengunes.workinghive.core.data.model.Task
 import com.gulsengunes.workinghive.databinding.FragmentTaskManagerBinding
-import com.gulsengunes.workinghive.viewmodel.TaskViewModel
+import com.gulsengunes.workinghive.ui.adapter.TaskAdapter
+import com.gulsengunes.workinghive.ui.viewmodel.TaskViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class TaskManagerFragment : Fragment() {
 
     private lateinit var binding: FragmentTaskManagerBinding
-
     private lateinit var taskAdapter: TaskAdapter
     private val tasks = mutableListOf<Task>()
-
-    private lateinit var taskViewModel: TaskViewModel // ViewModel ekleniyor
+    private lateinit var taskViewModel: TaskViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentTaskManagerBinding.inflate(inflater,container,false)
+        binding = FragmentTaskManagerBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // ViewModel'in bağlanması
         taskViewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
 
         setupRecyclerView()
 
-        // LiveData ile veriler gözlemleniyor
-        taskViewModel.allTasks.observe(viewLifecycleOwner, { taskList ->
+        taskViewModel.allTasks.observe(viewLifecycleOwner) { taskList ->
             tasks.clear()
-            tasks.addAll(taskList)
+            val incompleteTasks = taskList.filter { !it.isCompleted }
+            tasks.addAll(incompleteTasks)
             taskAdapter.notifyDataSetChanged() // RecyclerView'i güncelle
-        })
+        }
 
         binding.buttontextinput.setOnClickListener {
             val title = binding.title.text.toString()
@@ -60,13 +58,26 @@ class TaskManagerFragment : Fragment() {
                 binding.title.text.clear()
                 binding.textinput.text.clear()
             } else {
-                Toast.makeText(requireContext(), "Lütfen tüm alanları doldurun!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    "Lütfen tüm alanları doldurun!",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            taskViewModel.allTasks.observe(viewLifecycleOwner) { taskList ->
+                tasks.clear()
+                tasks.addAll(taskList.filter { !it.isCompleted }) // Sadece tamamlanmamış görevleri göster
+                taskAdapter.notifyDataSetChanged() // RecyclerView'i güncelle
+            }
+
+            taskViewModel.completedTasks.observe(viewLifecycleOwner) { completedTaskList ->
+                // İkinci sayfadaki görevleri burada güncelleyebilirsin
             }
         }
     }
 
     private fun setupRecyclerView() {
-        taskAdapter = TaskAdapter(tasks)
+        taskAdapter = TaskAdapter(tasks, taskViewModel)
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = taskAdapter
     }

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/taskManagerFragment"
-        android:name="com.gulsengunes.workinghive.ui.TaskManagerFragment"
+        android:name="com.gulsengunes.workinghive.ui.fragment.TaskManagerFragment"
         tools:layout="@layout/fragment_task_manager">
         <action
             android:id="@+id/action_taskManagerFragment_to_taskDetailFragment"
@@ -16,22 +16,22 @@
 
     <fragment
         android:id="@+id/championTasksFragment"
-        android:name="com.gulsengunes.workinghive.ui.ChampionTasksFragment"
+        android:name="com.gulsengunes.workinghive.ui.fragment.ChampionTasksFragment"
         android:label="fragment_champion_tasks"
         tools:layout="@layout/fragment_champion_tasks" />
     <fragment
         android:id="@+id/dreamTasksFragment"
-        android:name="com.gulsengunes.workinghive.ui.DreamTasksFragment"
+        android:name="com.gulsengunes.workinghive.ui.fragment.DreamTasksFragment"
         android:label="fragment_dream_tasks"
         tools:layout="@layout/fragment_dream_tasks" />
     <fragment
         android:id="@+id/miniGamesFragment"
-        android:name="com.gulsengunes.workinghive.ui.MiniGamesFragment"
+        android:name="com.gulsengunes.workinghive.ui.fragment.MiniGamesFragment"
         android:label="fragment_mini_games"
         tools:layout="@layout/fragment_mini_games" />
     <fragment
         android:id="@+id/luckyWheelFragment"
-        android:name="com.gulsengunes.workinghive.ui.LuckyWheelFragment"
+        android:name="com.gulsengunes.workinghive.ui.fragment.LuckyWheelFragment"
         android:label="fragment_lucky_wheel"
         tools:layout="@layout/fragment_lucky_wheel" />
 </navigation>

@@ -1,14 +1,18 @@
-package com.gulsengunes.workinghive.ui
+package com.gulsengunes.workinghive.ui.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.gulsengunes.workinghive.data.model.Task
+import com.gulsengunes.workinghive.core.data.model.Task
 import com.gulsengunes.workinghive.databinding.ItemTaskManagerListBinding
+import com.gulsengunes.workinghive.ui.viewmodel.TaskViewModel
 
 class TaskAdapter(
-    private var tasks: List<Task>
-) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
+    private var tasks: List<Task>,
+    private val viewModel: TaskViewModel,
+
+    ) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
     inner class TaskViewHolder(private val binding: ItemTaskManagerListBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -16,7 +20,19 @@ class TaskAdapter(
         fun bind(task: Task) {
             binding.titleid.text = task.title
             binding.descriptionid.text = task.description
+
+            binding.btnDelete.setOnClickListener {
+                viewModel.deleteTask(task)
+            }
+
+            binding.btnbitti.setOnClickListener {
+                viewModel.markTaskAsCompleted(task)
+            }
+
+            binding.btnbitti.visibility = if (task.isCompleted) View.GONE else View.VISIBLE
+
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
@@ -31,9 +47,9 @@ class TaskAdapter(
 
     override fun getItemCount(): Int = tasks.size
 
-//    fun updateTasks(newTasks: List<Task>) {
-//        tasks = newTasks
-//        notifyDataSetChanged() // RecyclerView'ın verileri güncellemesi için
-//    }
+    fun updateTasks(newTasks: List<Task>) {
+        tasks = newTasks
+        notifyDataSetChanged() // RecyclerView'ın verileri güncellemesi için
+    }
 
 }

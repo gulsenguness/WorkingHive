@@ -1,9 +1,9 @@
-package com.gulsengunes.workinghive.di
+package com.gulsengunes.workinghive.core.di
 
 import android.content.Context
-import com.gulsengunes.workinghive.data.database.TaskDao
-import com.gulsengunes.workinghive.data.database.TaskDatabase
-import com.gulsengunes.workinghive.data.repository.TaskRepository
+import com.gulsengunes.workinghive.core.data.database.TaskDao
+import com.gulsengunes.workinghive.core.data.database.TaskDatabase
+import com.gulsengunes.workinghive.core.data.repository.TaskRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
