@@ -2,4 +2,8 @@
     <string name="app_name">WorkingHive</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ekle">Ekle</string>
+    <string name="g_rev_detaylar">Görev Detayları</string>
+    <string name="ba_l_k_girin">Başlık Girin</string>
+    <string name="g_revler">Görevler</string>
 </resources>

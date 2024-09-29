@@ -10,5 +10,6 @@ data class Task(
     var title: String,
     val priority: String,
     var description: String,
-    var isCompleted: Boolean = false
+    var isCompleted: Boolean = false,
+    var dueDate: String? = null
 )

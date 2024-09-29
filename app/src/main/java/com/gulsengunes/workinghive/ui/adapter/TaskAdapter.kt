@@ -1,12 +1,18 @@
 package com.gulsengunes.workinghive.ui.adapter
 
+import android.app.DatePickerDialog
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.DatePicker
+import android.widget.TextView
+import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
 import com.gulsengunes.workinghive.core.data.model.Task
 import com.gulsengunes.workinghive.databinding.ItemTaskManagerListBinding
 import com.gulsengunes.workinghive.ui.viewmodel.TaskViewModel
+import java.util.Calendar
 
 class TaskAdapter(
     private var tasks: List<Task>,
@@ -20,6 +26,7 @@ class TaskAdapter(
         fun bind(task: Task) {
             binding.titleid.text = task.title
             binding.descriptionid.text = task.description
+//            binding.datatext.text = task.dueDate ?: "Son tarih  belirlenmemiş"
 
             binding.btnDelete.setOnClickListener {
                 viewModel.deleteTask(task)
