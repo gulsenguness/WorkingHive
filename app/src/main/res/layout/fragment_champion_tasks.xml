@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragment.ChampionTasksFragment"
-    android:background="#E9B0F3"
+    android:background="#AF95DD"
     >
 
     <TextView
