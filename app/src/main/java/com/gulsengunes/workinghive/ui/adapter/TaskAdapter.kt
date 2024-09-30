@@ -26,7 +26,7 @@ class TaskAdapter(
         fun bind(task: Task) {
             binding.titleid.text = task.title
             binding.descriptionid.text = task.description
-//            binding.datatext.text = task.dueDate ?: "Son tarih  belirlenmemiş"
+            binding.datatext.text = task.dueDate ?: "Son tarih  belirlenmemiş"
 
             binding.btnDelete.setOnClickListener {
                 viewModel.deleteTask(task)
@@ -56,7 +56,7 @@ class TaskAdapter(
 
     fun updateTasks(newTasks: List<Task>) {
         tasks = newTasks
-        notifyDataSetChanged() // RecyclerView'ın verileri güncellemesi için
+        notifyDataSetChanged()
     }
 
 }

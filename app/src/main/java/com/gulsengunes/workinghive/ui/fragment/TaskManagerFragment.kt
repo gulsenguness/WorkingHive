@@ -47,7 +47,7 @@ class TaskManagerFragment : Fragment() {
             taskAdapter.notifyDataSetChanged()
         }
 
-        binding.datatext.setOnClickListener{
+        binding.datatext.setOnClickListener {
             showDate()
         }
 
@@ -56,17 +56,24 @@ class TaskManagerFragment : Fragment() {
         }
     }
 
-    private fun add(){
+    private fun add() {
         val title = binding.title.text.toString()
         val description = binding.textinput.text.toString()
         val priority = "Low"
+        val dueDate = binding.datatext.text.toString()
 
         if (title.isNotBlank() && description.isNotBlank()) {
-            val newTask = Task(title = title, description = description, priority = priority)
+            val newTask = Task(
+                title = title,
+                description = description,
+                priority = priority,
+                dueDate = if (dueDate.isNotBlank()) dueDate else null
+            )
             taskViewModel.addTask(newTask)
 
             binding.title.text.clear()
             binding.textinput.text.clear()
+            binding.datatext.text.clear()
         } else {
             Toast.makeText(
                 requireContext(),
@@ -80,22 +87,25 @@ class TaskManagerFragment : Fragment() {
             taskAdapter.notifyDataSetChanged()
         }
 
-        taskViewModel.completedTasks.observe(viewLifecycleOwner) { completedTaskList ->
-            // İkinci sayfadaki görevleri burada güncelleyebilirsin
-        }
+//        taskViewModel.completedTasks.observe(viewLifecycleOwner) { completedTaskList ->
+//            // İkinci sayfadaki görevleri burada güncelleyebilirsin
+//        }
     }
 
-    private fun showDate(){
+    private fun showDate() {
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
         val month = calendar.get(Calendar.MONTH)
         val day = calendar.get(Calendar.DAY_OF_MONTH)
 
-        val datePickerDialog = DatePickerDialog(requireContext(),
+        val datePickerDialog = DatePickerDialog(
+            requireContext(),
             { _: DatePicker, selectedYear: Int, selectedMonth: Int, selectedDay: Int ->
-                val formattedDate = "${selectedDay}/${selectedMonth + 1}/$selectedYear" // Tarihi formatla
+                val formattedDate =
+                    "${selectedDay}/${selectedMonth + 1}/$selectedYear" // Tarihi formatla
                 binding.datatext.setText(formattedDate)
-            }, year, month, day)
+            }, year, month, day
+        )
 
         datePickerDialog.show()
 
