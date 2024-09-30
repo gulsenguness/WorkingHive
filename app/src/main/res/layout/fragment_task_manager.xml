@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragment.TaskManagerFragment">
+    tools:context=".ui.fragment.TaskManagerFragment"
+    android:background="#AF95DD"
+    >
 
     <TextView
         android:id="@+id/textView"
@@ -14,6 +16,7 @@
         android:layout_margin="16dp"
         android:gravity="center"
         android:text="Görevler"
+        android:textColor="#333333"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -60,15 +63,15 @@
 
     <EditText
         android:id="@+id/datatext"
-        android:layout_width="370dp"
-        android:layout_height="43dp"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/gray"
         android:clickable="true"
         android:focusable="false"
         android:hint="Tarih Seçiniz"
         android:paddingStart="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/buttontextinput"
+        app:layout_constraintEnd_toEndOf="@+id/textinput"
         app:layout_constraintStart_toStartOf="@+id/textinput"
         app:layout_constraintTop_toBottomOf="@+id/textinput" />
 
