@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragment.TaskManagerFragment"
-    android:background="#AF95DD">
+    android:background="@color/backcolor"
+    >
 
     <TextView
         android:id="@+id/textView"
@@ -14,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:gravity="center"
-        android:text="Görevler"
+        android:text="@string/my_tasks"
         android:textColor="#333333"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -29,7 +30,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:hint="Başlık Girin"
+        android:hint="@string/enter_title"
         android:textColorHint="#D99FE3"
         android:paddingStart="10dp"
         android:paddingBottom="10dp"
@@ -43,7 +44,7 @@
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
-        android:hint="Görev Detayları"
+        android:hint="@string/enter_task_details"
         android:textColorHint="#D99FE3"
         android:paddingStart="10dp"
         android:paddingBottom="10dp"
@@ -57,7 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:text="Ekle"
+        android:text="@string/save"
         app:layout_constraintBottom_toBottomOf="@+id/datatext"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/datatext" />
@@ -70,7 +71,7 @@
         android:background="@drawable/edit_text_background"
         android:clickable="true"
         android:focusable="false"
-        android:hint="Tarih Seçiniz"
+        android:hint="@string/select_date"
         android:textColorHint="#D99FE3"
         android:paddingStart="10dp"
         android:paddingBottom="10dp"

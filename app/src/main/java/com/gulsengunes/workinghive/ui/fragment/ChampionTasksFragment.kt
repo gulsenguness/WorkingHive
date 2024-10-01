@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.appcompat.widget.SearchView
 import com.gulsengunes.workinghive.core.data.model.Task
 import com.gulsengunes.workinghive.databinding.FragmentChampionTasksBinding
 import com.gulsengunes.workinghive.ui.adapter.TaskAdapter
@@ -40,6 +41,7 @@ class ChampionTasksFragment : Fragment() {
             completedTasks.addAll(taskList)
             taskAdapter.updateTasks(completedTasks)
         }
+
     }
 
     private fun setupRecyclerView() {
@@ -47,5 +49,6 @@ class ChampionTasksFragment : Fragment() {
         binding.championRecyclerview.layoutManager = LinearLayoutManager(requireContext())
         binding.championRecyclerview.adapter = taskAdapter
     }
+
 
 }

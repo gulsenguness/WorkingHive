@@ -6,4 +6,9 @@
     <string name="g_rev_detaylar">Görev Detayları</string>
     <string name="ba_l_k_girin">Başlık Girin</string>
     <string name="g_revler">Görevler</string>
+    <string name="enter_title">Enter Title</string>
+    <string name="enter_task_details">Enter Task Details</string>
+    <string name="select_date">Select Date</string>
+    <string name="save">Save</string>
+    <string name="my_tasks">MY TASKS</string>
 </resources>
