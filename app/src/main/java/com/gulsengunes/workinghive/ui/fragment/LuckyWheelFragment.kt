@@ -20,6 +20,8 @@ class LuckyWheelFragment : Fragment() {
     private val taskViewModel: TaskViewModel by viewModels()
     private lateinit var wheelbutton: Button
     private lateinit var lottieView: LottieAnimationView
+    private var wheelCount = 0
+    private var wheelMax = 3
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,20 +45,33 @@ class LuckyWheelFragment : Fragment() {
         wheelbutton.isEnabled = false
     }
 
-    private fun observeCompletedTasks() {
-        taskViewModel.completedTasks.observe(viewLifecycleOwner, Observer { tasks ->
-            wheelbutton.isEnabled = taskViewModel.canSpinWheel()
-        })
-    }
-
     private fun setupSpinButtonClickListener() {
         wheelbutton.setOnClickListener {
-            lottieView.playAnimation()
-            val randomPoints: Int = (1..100).random()
-            Toast.makeText(context, "Congratulations! \nYou earned $randomPoints points!", Toast.LENGTH_SHORT)
-                .show()
+            if (wheelCount < wheelMax) {
+                lottieView.playAnimation()
+                val randomPoints: Int = (1..100).random()
+                Toast.makeText(context, "Congratulations!\nYou earned $randomPoints points!", Toast.LENGTH_SHORT).show()
+                wheelCount++
+            } else {
+                Toast.makeText(context, "Sorry, Complete new quests.", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
+    private fun observeCompletedTasks() {
+        taskViewModel.completedTasks.observe(viewLifecycleOwner, Observer { tasks ->
+            val completedTaskCount = tasks.size
+
+            if (completedTaskCount > 0 && completedTaskCount % 3 == 0) {
+                if (completedTaskCount >= 6) {
+                    wheelCount = 0
+                    wheelMax = 3
+                }
+                wheelbutton.isEnabled = true
+            } else {
+                wheelbutton.isEnabled = false
+            }
+        })
+    }
 
 }
