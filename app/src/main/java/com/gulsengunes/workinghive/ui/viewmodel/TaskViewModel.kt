@@ -42,4 +42,9 @@ class TaskViewModel @Inject constructor(
         }
     }
 
+    fun canSpinWheel(): Boolean {
+        val taskCount = completedTasks.value?.size ?: 0
+        return taskCount > 0 && taskCount % 2 == 0
+    }
+
 }
