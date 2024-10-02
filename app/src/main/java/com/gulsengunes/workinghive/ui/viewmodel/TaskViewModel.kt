@@ -1,6 +1,7 @@
 package com.gulsengunes.workinghive.ui.viewmodel
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
@@ -16,6 +17,7 @@ class TaskViewModel @Inject constructor(
 ) : ViewModel() {
     val allTasks: LiveData<List<Task>> = repository.getAllTasks().asLiveData()
     val completedTasks: LiveData<List<Task>> = repository.getCompletedTasks().asLiveData()
+
 
     fun addTask(task: Task) {
         viewModelScope.launch {
@@ -41,6 +43,5 @@ class TaskViewModel @Inject constructor(
             repository.updateTask(updatedTask)
         }
     }
-
 
 }

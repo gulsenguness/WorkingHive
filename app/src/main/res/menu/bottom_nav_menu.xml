@@ -2,23 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/taskManagerFragment"
-        android:title="Görevler"
+        android:title="@string/quests"
         android:icon="@drawable/ic_launcher_foreground"/>
     <item
         android:id="@+id/championTasksFragment"
-        android:title="Tamamlananlar"
-        android:icon="@drawable/ic_launcher_foreground"/>
-    <item
-        android:id="@+id/dreamTasksFragment"
-        android:title="Hayal"
+        android:title="@string/completed"
         android:icon="@drawable/ic_launcher_foreground"/>
     <item
         android:id="@+id/miniGamesFragment"
-        android:title="Oyunlar"
+        android:title="@string/games"
         android:icon="@drawable/ic_launcher_foreground"/>
     <item
         android:id="@+id/luckyWheelFragment"
-        android:title="Şans Tekerliği"
+        android:title="@string/wheel_of_fortune"
         android:icon="@drawable/ic_launcher_foreground"/>
 
 </menu>

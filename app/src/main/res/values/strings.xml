@@ -11,4 +11,8 @@
     <string name="select_date">Select Date</string>
     <string name="save">Save</string>
     <string name="my_tasks">MY TASKS</string>
+    <string name="quests">Quests</string>
+    <string name="completed">Completed</string>
+    <string name="games">Games</string>
+    <string name="wheel_of_fortune">Wheel of Fortune</string>
 </resources>

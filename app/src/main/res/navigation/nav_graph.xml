@@ -20,11 +20,6 @@
         android:label="fragment_champion_tasks"
         tools:layout="@layout/fragment_champion_tasks" />
     <fragment
-        android:id="@+id/dreamTasksFragment"
-        android:name="com.gulsengunes.workinghive.ui.fragment.DreamTasksFragment"
-        android:label="fragment_dream_tasks"
-        tools:layout="@layout/fragment_dream_tasks" />
-    <fragment
         android:id="@+id/miniGamesFragment"
         android:name="com.gulsengunes.workinghive.ui.fragment.MiniGamesFragment"
         android:label="fragment_mini_games"

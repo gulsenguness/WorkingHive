@@ -11,6 +11,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.airbnb.lottie.LottieAnimationView
 import com.gulsengunes.workinghive.R
+import com.gulsengunes.workinghive.databinding.FragmentLuckyWheelBinding
+import com.gulsengunes.workinghive.databinding.FragmentTaskManagerBinding
 import com.gulsengunes.workinghive.ui.viewmodel.TaskViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_android_internal_builders_ActivityRetainedComponentBuilder
@@ -18,23 +20,24 @@ import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_andro
 @AndroidEntryPoint
 class LuckyWheelFragment : Fragment() {
     private val taskViewModel: TaskViewModel by viewModels()
+    lateinit var binding: FragmentLuckyWheelBinding
     private lateinit var wheelbutton: Button
     private lateinit var lottieView: LottieAnimationView
     private var wheelCount = 0
     private var wheelMax = 3
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_lucky_wheel, container, false)
+        binding = FragmentLuckyWheelBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         lottieView = view.findViewById(R.id.giftAnimation)
-
         setupWheelButton(view)
         observeCompletedTasks()
         setupSpinButtonClickListener()
