@@ -1,8 +1,7 @@
 # WorkingHive 🐝✨
 
 **WorkingHive**, 
-görevlerinizi yönetmenize ve ödüller kazanmanıza yardımcı olacak eğlenceli bir Android uygulamasıdır. 
-Kullanıcı dostu arayüzü ve interaktif özellikleri ile çalışma deneyiminizi renklendirir! Hazır mısınız? Hadi başlayalım! 🚀
+görevlerinizi eğlenceli bir şekilde yönetmenize ve harika ödüller kazanmanıza yardımcı olacak bir Android uygulamasıdır! Kullanıcı dostu arayüzü ve interaktif özellikleriyle çalışma deneyiminizi renklendirirken, gelecekte daha da heyecan verici hale getireceğim yeni özelliklerle karşınıza çıkmayı planlıyorum! Hazır mısınız? Hadi başlayalım ve bu yolculuğa birlikte adım atalım! 🚀
 
 ## Uygulama Özellikleri
 
