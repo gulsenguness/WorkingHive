@@ -19,16 +19,10 @@ class TaskRepository @Inject constructor(private val taskDao: TaskDao) {
         return taskDao.getPendingTasks()
     }
 
-    suspend fun addTask(task: Task) {
-        taskDao.insertTask(task)
-    }
+    suspend fun addTask(task: Task) = taskDao.insertTask(task)
 
-    suspend fun updateTask(task: Task) {
-        taskDao.updateTask(task)
-    }
+    suspend fun updateTask(task: Task) = taskDao.updateTask(task)
 
-    suspend fun deleteTask(task: Task) {
-        taskDao.deleteTask(task)
-    }
+    suspend fun deleteTask(task: Task) = taskDao.deleteTask(task)
 
 }

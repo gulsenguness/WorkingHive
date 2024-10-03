@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.appcompat.widget.SearchView
+import com.gulsengunes.workinghive.R
 import com.gulsengunes.workinghive.core.data.model.Task
 import com.gulsengunes.workinghive.databinding.FragmentChampionTasksBinding
 import com.gulsengunes.workinghive.ui.adapter.TaskAdapter
@@ -42,6 +43,28 @@ class ChampionTasksFragment : Fragment() {
             taskAdapter.updateTasks(completedTasks)
         }
 
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                filterTasks(newText)
+                return true
+            }
+        })
+
+    }
+
+    private fun filterTasks(query: String?) {
+        val filteredTask = if (query.isNullOrEmpty()) {
+            completedTasks
+        } else {
+            completedTasks.filter { task ->
+                task.title.contains(query, ignoreCase = true)
+            }
+        }
+        taskAdapter.updateTasks(filteredTask)
     }
 
     private fun setupRecyclerView() {
